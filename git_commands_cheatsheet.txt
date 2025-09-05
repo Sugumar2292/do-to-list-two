@@ -1,0 +1,73 @@
+
+# Git Commands Cheat Sheet
+
+## Setup & Configuration
+git config --global user.name "Your Name"      # Sets your username for all repos
+git config --global user.email "you@example.com" # Sets your email for commits
+git config --list                               # Shows all git configuration
+
+## Starting a Repository
+git init                                        # Creates a new local Git repository
+git clone <repo-url>                            # Creates a copy of a remote repository locally
+
+## Basic Snapshotting
+git status                                      # Shows status of changes
+git add <file>                                  # Stages a file
+git add .                                       # Stages all changes
+git reset <file>                                # Unstages a file
+git diff                                        # Shows unstaged changes
+git diff --staged                               # Shows staged changes
+git commit -m "message"                         # Commit staged changes
+git commit -am "message"                        # Stage & commit tracked files
+
+## Branching & Merging
+git branch                                      # List branches
+git branch <name>                               # Create branch
+git checkout <name>                             # Switch to branch
+git checkout -b <name>                          # Create & switch branch
+git merge <branch>                              # Merge branch into current branch
+git branch -d <name>                            # Delete branch
+git branch -D <name>                            # Force delete branch
+
+## Remote Repositories
+git remote -v                                   # Show remotes
+git remote add origin <url>                     # Add remote repository
+git push origin <branch>                        # Push to remote branch
+git push -u origin <branch>                     # Push & set upstream
+git pull                                        # Fetch & merge from remote
+git fetch                                       # Fetch without merge
+
+## Undoing & Fixing
+git restore <file>                              # Discard changes
+git reset --soft HEAD~1                         # Undo last commit, keep staged
+git reset --mixed HEAD~1                        # Undo last commit, keep unstaged
+git reset --hard HEAD~1                         # Remove last commit & changes
+git revert <commit-id>                          # Undo commit with new commit
+git checkout <commit-id> <file>                 # Restore file from commit
+
+## Viewing History
+git log                                         # Commit history
+git log --oneline                               # Compact history
+git log --graph --oneline --decorate            # Branch graph view
+git show <commit-id>                            # Show commit details
+git blame <file>                                # Show last modifier per line
+
+## Stashing (Temporary Work)
+git stash                                       # Save changes temporarily
+git stash list                                  # List stashes
+git stash apply                                 # Apply last stash
+git stash pop                                   # Apply & remove last stash
+git stash drop                                  # Delete a stash
+
+## Tags & Releases
+git tag                                         # List tags
+git tag <name>                                  # Create lightweight tag
+git tag -a <name> -m "message"                  # Create annotated tag
+git push origin <tag>                           # Push single tag
+git push origin --tags                          # Push all tags
+
+## Advanced
+git rebase <branch>                             # Reapply commits on another branch
+git cherry-pick <commit-id>                     # Apply specific commit
+git reflog                                      # Show branch history (HEAD changes)
+git bisect                                      # Find commit that introduced bug
